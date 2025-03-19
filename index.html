@@ -123,9 +123,34 @@
 
 </style>
 
-
+		<title>Experience Calculator</title>
+		<script>
+			function calculateExperience(startDate) {
+				let start = new Date(startDate);
+				let today = new Date();
+				let experienceYears = (today - start) / (1000 * 60 * 60 * 24 * 365.25);
+				return Math.floor(experienceYears) + "+ years"; // Round down to nearest whole number
+			}
+	
+			function updateExperience() {
+				let startDate = "2021-09-01";  // Change this to the actual start date
+				let experienceText = calculateExperience(startDate); // Define experienceText here
+	
+				document.getElementById("experience").innerText = experienceText;
+	
+				// Get the paragraph
+				let paragraph = document.getElementById("automatic_year_change");
+	
+				// Ensure it replaces "1+ years" correctly anywhere in the text
+				paragraph.innerHTML = paragraph.innerHTML.replace(/\d+\+? years/, experienceText);
+			}
+	
+			// Ensure script runs after the page is fully loaded
+			window.onload = updateExperience;
+		</script>	
+		
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" onload="updateExperience()">
 	  
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
@@ -173,7 +198,7 @@
 						const typingTexts = [
 						'Data Scientist  ',
 						'Data Analysist  ',
-						'Game Developer   ',
+						'AI/ML Engineer  ',
 						];
 
 						// Create a function to display the typing animation for a given text
@@ -233,7 +258,8 @@
 									  <div class="about-info">
 										<p><span class="title-s">Name: </span> <span>Ahmad Saeed</span></p>
 										<p><span class="title-s">Job Role: </span> <span>Data Scientist</span></p>
-										<p><span class="title-s">Experience: </span> <span>1+ Year</span></p>
+										<p><span class="title-s">Experience: </span> <span id="experience"></span></p>
+										<!-- <p><span class="title-s">Experience: </span> <span>4+ Year</span></p> -->
 										<p><span class="title-s">Address: </span> <span>Lahore, Pakistan</span></p>
 									  </div>
 									</div>
@@ -288,7 +314,7 @@
 								
 								<h1 class="big">About</h1>
 								<h2 class="mb-4">About Me</h2>
-								<p>Data scientist with 1+ years of experience and a Bachelor's in Information Technology. 
+								<p id="automatic_year_change">Data scientist with 1+ years of experience and a Bachelor's in Information Technology. 
 									Skilled in data analysis, statistical techniques, hypothesis testing, and customer behavior insights. 
 									Proficient in machine learning, driving impactful projects with measurable success. 
 									Experienced in mentoring and supporting team development. 
@@ -299,7 +325,7 @@
 									<li class="d-flex"><span>Education:</span> <span>Bachelor of Science in Information &amp; Technology</span></li>
 									<li class="d-flex"><span>Language:</span> <span>English, Urdu, Punjabi</span></li>
 									<li class="d-flex"><span>BI Tools:</span> <span>Microsoft Power BI, Looker &amp; Tableau</span></li>
-									<li class="d-flex"><span>Other Skills:</span> <span>Cloud, Excel, Git, Slack, JIRA, Google Analytics &amp; Unity</span></li>
+									<li class="d-flex"><span>Other Skills:</span> <span>Cloud, Excel, Git, Slack, JIRA, ClickUp, Google Analytics &amp; Unity</span></li>
 									<li class="d-flex"><span>Interest:</span> <span>Data Science, Data Analysis, Machine Learning (ML), Deep Learning (DL), Artificial Intelligence (AI) &amp; Natural Language Processing (NLP)</span></li>
 									
 								</ul>
@@ -331,9 +357,11 @@
           <div class="col-md-10 heading-section text-center ftco-animate">
           	<h1 class="big big-2">Resume</h1>
             <h2 class="mb-4">Resume</h2>
-            <p>Data Scientist and Analyst with over a year of experience transforming data into strategic business insights.
-				Skilled in leveraging data science, statistical analysis, and machine learning algorithms to support decision-making and optimize performance. 
-				Demonstrated success in managing projects from conception to execution, ensuring alignment with business objectives and data accuracy for actionable outcomes.</p>
+            <p>Data Scientist and Analyst with a proven track record of transforming data into strategic business insights.  
+				Adept at leveraging data science, statistical analysis, and machine learning to drive decision-making and optimize performance.  
+				Extensive experience managing end-to-end projects, ensuring data accuracy and actionable outcomes aligned with business goals.  
+			 </p>
+			 
         		</a>
 			</div>
 
@@ -358,15 +386,17 @@
 					<div class="resume-wrap ftco-animate">
 						<span class="date">2024-Present</span>
 						<h2>Data Scientist</h2>
-						<span class="position">Data Scientist And Analyst</span>
-						<p class="mt-4">ITSOLERA, the future of tech with innovative solutions. Our name, 'Innovative Technology Solutions Era,' reflects our mission to lead digital transformation with premium IT services, targeted training, and advanced products.
+						<span class="position">Data Scientist, Analyst and AI/ML Engineer</span>
+						<p class="mt-4">
+							Tesseract Technologies is revolutionizing AI-powered and processing with cutting-edge solutions. As a Data Scientist & AI/ML Engineer, I have spearheaded key initiatives to enhance text analysis, automation, and user experience.
 							<ul>
-								<li>Applied NLP on customer feedback, identifying satisfaction drivers and reducing negative feedback by 25%.</li>
-								<li>Created recommendation systems, boosting engagement and satisfaction by 15%.</li>
-								<li>Developed churn prediction models, enabling retention strategies that cut churn by 30%.</li>
-								<li>Led A/B tests on new features, increasing user retention and adoption by 12%.</li>
+								<li>Built Claustro.io, an AI platform using GPT-3.5-Turbo for generating summaries, MCQs, and structured questions.</li>
+								<li>Integrated OCR for accurate text extraction from scanned documents.</li>
+								<li>Developed a Prompt Engineering feature to refine user queries and enhance AI responses.</li>
+								<li>Enabled seamless PDF/DOCX exports for easy content retrieval. Deployed on Hostinger with Docker for scalability and security.</li>
 							</ul>
 						</p>
+						
 					</div>
 
 				</div>
@@ -374,15 +404,17 @@
 				<div class="col-md-6">
 					<div class="resume-wrap ftco-animate">
 						<span class="date">2021-2024</span>
-						<h2>Game Development</h2>
-						<span class="position">Unity Game Developer</span>
-						<p class="mt-4">KICS (UET), Game Pixel Studio, Root Pointers is a cutting-edge game development studio, merging data-driven insights with innovative game mechanics to create engaging player experiences. 
+						<h2>Data Scientist</h2>
+						<span class="position">Data Scientist, Analyst and AI/ML Engineer</span>
+						<p class="mt-4">ITSOLERA is driving the future of tech with cutting-edge AI and data-driven solutions. As a Data Scientist & AI/ML Engineer, I contributed to predictive analytics, automation, and business intelligence.
 							<ul>
-								<li>Developed immersive AR/VR experiences, enhancing user engagement and retention by 40% in core gameplay.</li>
-								<li>Integrated advanced C# and Firebase for real-time data sync in multiplayer environments, reducing latency by 25%.</li>
-								<li>Built scalable back-end solutions with Firebase for multiplayer gaming, improving server response times by 30% during peak activity.</li>
+								<li>Designed and implemented ML/DL models, improving forecasting accuracy by 20% and operational efficiency by 15%.</li>
+								<li>Optimized ETL pipelines, reducing data processing time by 30% while ensuring high data integrity.</li>
+								<li>Developed interactive Power BI dashboards for real-time financial analysis and data-driven decision-making.</li>
+								<li>Integrated advanced analytics to uncover trends, enhance reporting, and drive strategic insights.</li>
 							</ul>
 						</p>
+						
 					</div>
 
 				</div>
@@ -421,7 +453,7 @@
     			<div class="col-md-6 text-center ftco-animate">
     				 <!-- <p><a href="#" class="btn btn-primary py-4 px-5">Download CV</a></p>  -->
 					<p>Click the link below to view my resume:</p>
-					<p><a href="resume/AhmadSaeedDataScientist.pdf" target="_blank" class="btn btn-primary py-4 px-5">Download CV</a></p>
+					<p><a href="resume/Ahmad_Saeed_Resume.pdf" target="_blank" class="btn btn-primary py-4 px-5">Download CV</a></p>
 				</div>
     		</div>
     	</div>
@@ -435,7 +467,7 @@
           <div class="col-md-7 heading-section text-center ftco-animate">
             <h1 class="big big-2">Projects</h1>
             <h2 class="mb-4">Projects</h2>
-            <p>Below are the sample Data Analytics projects on SQL, Python, Power BI & ML.</p>
+			<p>Explore Data Science and Analytics projects using Python, SQL, and Power BI.</p>
           </div>
         </div>
         <div class="row d-flex">
@@ -715,7 +747,7 @@
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
           	<div class="align-self-stretch box p-4 text-center">
           		<div class="icon d-flex align-items-center justify-content-center">
-				<a href="resume/AhmadSaeedDataScientist.pdf" target="_blank">
+				<a href="resume/Ahmad_Saeed_Resume.pdf" target="_blank">
           			<span class="icon-globe"></span>
           		</div>
           		<h3 class="mb-4">Download Resume</h3>
@@ -758,7 +790,8 @@
 			<div class="col-md-12 text-center">
   
 			  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://www.youtube.com/@RajpootMusicOfficials" target="_blank">Rajpoot Productions</a>
+	<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="https://www.youtube.com/@RajpootMusicOfficials" target="_blank">Rajpoot Productions</a> -->
+	Copyright &copy;<script>document.write(2021);</script> All rights reserved | This template is made by <a href="https://www.youtube.com/@RajpootMusicOfficials" target="_blank">Rajpoot Productions</a>
 	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 			</div>
 		  </div>
